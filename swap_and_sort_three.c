@@ -6,7 +6,7 @@
 /*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:21 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/17 22:52:33 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/03/22 15:18:28 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 
 static void	flip(t_list **head)
 {
-	t_list	*first;
-	t_list	*second;
-
 	if (!*head || !(*head)->next)
 		return ;
-	first = *head;
-	second = first->next;
-	*head = second;
-	first->next = second->next;
-	first->prev = second;
-	second->next = first;
-	second->prev = NULL;
-	if (first->next)
-		first->next->prev = first;
+	*head = (*head)->next;
+	(*head)->prev->prev = *head;
+	(*head)->prev->next = (*head)->next;
+	if ((*head)->next)
+		(*head)->next->prev = (*head)->prev;
+	(*head)->next = (*head)->prev;
+	(*head)->prev = NULL;
 }
 
 void	sa(t_list	**a, bool print)

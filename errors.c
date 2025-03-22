@@ -6,7 +6,7 @@
 /*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 14:30:04 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/17 23:05:55 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/03/22 15:27:45 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,10 @@ int	is_valid_number(char *num_str)
 	if ((*num_str == '+' || *num_str == '-') && !(num_str[1] >= '0'
 			&& num_str[1] <= '9'))
 		return (1);
-	while (*num_str)
+	while (*++num_str)
 	{
 		if (!(*num_str >= '0' && *num_str <= '9'))
 			return (1);
-		num_str++;
 	}
 	return (0);
 }
