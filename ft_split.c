@@ -6,7 +6,7 @@
 /*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 14:09:13 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/22 14:42:40 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/03/22 17:02:49 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	i_len(const char *str, char c)
 	return (count);
 }
 
-char	**frees(char **str)
+static char	**frees(char **str)
 {
 	int	i;
 

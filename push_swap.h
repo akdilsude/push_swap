@@ -6,7 +6,7 @@
 /*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 14:02:33 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/22 14:42:52 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/03/22 17:03:16 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,5 @@ void	build_stack_a(t_list **a, char **argv);
 void	move_to_top(t_list **stack, t_list *top_node, char stack_name);
 void	sort_stacks(t_list **a, t_list **b);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	**frees(char **str);
 
 #endif
