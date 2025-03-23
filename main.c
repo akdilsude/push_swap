@@ -6,7 +6,7 @@
 /*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:58:09 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/22 17:15:30 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/03/23 15:59:21 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,26 @@ int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
-	char	**split_argv;
+	bool	x;
 
+	x = false;
 	a = NULL;
 	b = NULL;
-	split_argv = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	if (argc == 2)
 	{
-		split_argv = ft_split(argv[1], ' ');
-		argv = split_argv;
+		x = true;
+		argv = ft_split(argv[1], ' ');
 	}
-	build_stack_a(&a, argv + 1);
+	if (x == true)
+		build_stack_a(&a, argv);
+	else
+		build_stack_a(&a, argv + 1);
 	sort_stack(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
-	free_split(split_argv);
+	if (x == true)
+		free_split(argv);
 	return (0);
 }
