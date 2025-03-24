@@ -6,7 +6,7 @@
 /*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:55:21 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/22 15:18:28 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/03/24 20:24:44 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,25 @@ static void	flip(t_list **head)
 	(*head)->prev = NULL;
 }
 
-void	sa(t_list	**a, bool print)
+void	sa(t_list	**a, bool output)
 {
 	flip(a);
-	if (print == true)
+	if (output == true)
 		write (1, "sa\n", 3);
 }
 
-void	sb(t_list **b, bool print)
+void	sb(t_list **b, bool output)
 {
 	flip(b);
-	if (print == true)
+	if (output == true)
 		write (1, "sb\n", 3);
 }
 
-void	ss(t_list **a, t_list **b, bool print)
+void	ss(t_list **a, t_list **b, bool output)
 {
 	flip(a);
 	flip(b);
-	if (print == true)
+	if (output == true)
 		write (1, "ss\n", 3);
 }
 
