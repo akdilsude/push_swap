@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: sakdil < sakdil@student.42istanbul.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:58:09 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/24 10:34:16 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/03/28 13:55:40 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_split(char **split_argv)
+void	free_split(char **split_argv)
 {
 	int	i;
 
@@ -40,6 +40,7 @@ static void	sort_stack(t_list **a, t_list **b)
 			sort_stacks(a, b);
 	}
 }
+#include "stdio.h"
 
 int	main(int argc, char **argv)
 {
@@ -58,9 +59,9 @@ int	main(int argc, char **argv)
 		argv = ft_split(argv[1], ' ');
 	}
 	if (x == true)
-		build_stack_a(&a, argv);
+		build_stack_a(&a, argv, x);
 	else
-		build_stack_a(&a, argv + 1);
+		build_stack_a(&a, argv + 1, false);
 	sort_stack(&a, &b);
 	free_stack(&a);
 	free_stack(&b);

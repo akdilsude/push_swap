@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: sakdil < sakdil@student.42istanbul.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 14:02:33 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/24 20:31:59 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/03/28 13:23:22 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		stack_count(t_list *stack);
 t_list	*cheap_node(t_list *stack);
 t_list	*find_min(t_list *stack);
 t_list	*find_max(t_list *stack);
-void	free_errors(t_list **n);
+void	free_errors(t_list **n, bool x, char **argv);
 void	free_stack(t_list **stack);
 int		is_valid_number(char *num_str);
 int		check_repeated(t_list *a, int n);
@@ -58,9 +58,10 @@ void	ready_nodes_b(t_list *a, t_list *b);
 void	pa(t_list **a, t_list **b, bool output);
 void	pb(t_list **b, t_list **a, bool output);
 void	place_min_top(t_list **a);
-void	build_stack_a(t_list **a, char **argv);
+void	build_stack_a(t_list **a, char **argv, bool x);
 void	move_to_top(t_list **stack, t_list *top_node, char stack_name);
 void	sort_stacks(t_list **a, t_list **b);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	free_split(char **split_argv);
 
 #endif

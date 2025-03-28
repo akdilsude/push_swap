@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: sakdil < sakdil@student.42istanbul.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 14:19:23 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/24 10:26:06 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/03/28 13:23:38 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	add_node(t_list **stack, int n)
 	}
 }
 
-void	build_stack_a(t_list **a, char **argv)
+void	build_stack_a(t_list **a, char **argv, bool x)
 {
 	long	n;
 	int		i;
@@ -71,12 +71,12 @@ void	build_stack_a(t_list **a, char **argv)
 	while (argv[i])
 	{
 		if (is_valid_number(argv[i]))
-			free_errors(a);
+			free_errors(a, x, argv);
 		n = ft_atoi(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			free_errors(a);
+			free_errors(a, x, argv);
 		if (check_repeated(*a, (int)n))
-			free_errors(a);
+			free_errors(a, x, argv);
 		add_node(a, (int)n);
 		i++;
 	}
