@@ -6,7 +6,7 @@
 /*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 05:11:58 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/23 19:29:23 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/04/08 18:57:21 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_list	*find_min(t_list *stack)
 	long	min;
 	t_list	*min_node;
 
-	min = LONG_MAX;
+	min = 2147483647;
 	if (stack == NULL)
 		return (NULL);
 	while (stack)
@@ -74,7 +74,7 @@ t_list	*find_max(t_list *stack)
 	long	max;
 	t_list	*max_node;
 
-	max = LONG_MIN;
+	max = -2147483648;
 	if (stack == NULL)
 		return (NULL);
 	while (stack)

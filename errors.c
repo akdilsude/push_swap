@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakdil < sakdil@student.42istanbul.com.    +#+  +:+       +#+        */
+/*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 14:30:04 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/28 13:23:15 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/04/08 19:01:36 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_errors(t_list **n, bool x, char **argv)
+void	free_errors(t_list **n, char **split_argv, bool split_used)
 {
-	if (x == true)
-		free_split(argv);
 	free_stack(n);
+	if (split_used)
+		free_split(split_argv);
 	write (1, "Error\n", 6);
 	exit(1);
 }

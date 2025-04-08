@@ -6,7 +6,7 @@
 /*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 16:18:53 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/23 19:47:49 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/04/08 19:03:47 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	find_target_for_b(t_list *a, t_list *b)
 
 	while (b)
 	{
-		closest_larger = LONG_MAX;
+		closest_larger = 2147483647;
 		current_a = a;
 		while (current_a)
 		{
@@ -53,7 +53,7 @@ static void	find_target_for_b(t_list *a, t_list *b)
 			}
 			current_a = current_a->next;
 		}
-		if (closest_larger == LONG_MAX)
+		if (closest_larger == 2147483647)
 			b->target_node = find_min(a);
 		else
 			b->target_node = target_a;
@@ -66,4 +66,17 @@ void	ready_nodes_b(t_list *a, t_list *b)
 	current_index(a);
 	current_index(b);
 	find_target_for_b(a, b);
+}
+
+t_list	*cheap_node(t_list *stack)
+{
+	if (stack == NULL)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
 }

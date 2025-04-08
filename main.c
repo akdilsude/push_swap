@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakdil < sakdil@student.42istanbul.com.    +#+  +:+       +#+        */
+/*   By: sakdil <sakdil@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:58:09 by sakdil            #+#    #+#             */
-/*   Updated: 2025/03/28 13:55:40 by sakdil           ###   ########.fr       */
+/*   Updated: 2025/04/08 18:49:19 by sakdil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,32 +40,39 @@ static void	sort_stack(t_list **a, t_list **b)
 			sort_stacks(a, b);
 	}
 }
-#include "stdio.h"
+
+static void	continue_main(t_list *a, t_list *b)
+{
+	sort_stack(&a, &b);
+	free_stack(&a);
+	free_stack(&b);
+}
 
 int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
+	char	**original_argv;
 	bool	x;
 
 	x = false;
 	a = NULL;
 	b = NULL;
+	original_argv = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	if (argc == 2)
 	{
 		x = true;
-		argv = ft_split(argv[1], ' ');
+		original_argv = ft_split(argv[1], ' ');
+		argv = original_argv;
 	}
 	if (x == true)
-		build_stack_a(&a, argv, x);
+		build_stack_a(&a, argv, true);
 	else
 		build_stack_a(&a, argv + 1, false);
-	sort_stack(&a, &b);
-	free_stack(&a);
-	free_stack(&b);
+	continue_main(a, b);
 	if (x == true)
-		free_split(argv);
+		free_split(original_argv);
 	return (0);
 }
